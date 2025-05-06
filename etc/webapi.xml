@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Token Generation -->
+    <route url="/V1/callcenter/token" method="POST">
+        <service class="CallCenter\Integration\Api\TokenManagementInterface" method="createToken"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- Customer Search -->
+    <route url="/V1/callcenter/customer/search" method="GET">
+        <service class="CallCenter\Integration\Api\CustomerSearchInterface" method="search"/>
+        <resources>
+            <resource ref="CallCenter_Integration::callcenter"/>
+        </resources>
+    </route>
+
+    <!-- Product Search -->
+    <route url="/V1/callcenter/product/search" method="GET">
+        <service class="CallCenter\Integration\Api\ProductSearchInterface" method="search"/>
+        <resources>
+            <resource ref="CallCenter_Integration::callcenter"/>
+        </resources>
+    </route>
+
+    <!-- Cart Operations -->
+    <route url="/V1/callcenter/cart" method="POST">
+        <service class="CallCenter\Integration\Api\CartInterface" method="addItem"/>
+        <resources>
+            <resource ref="CallCenter_Integration::callcenter"/>
+        </resources>
+    </route>
+
+    <!-- Shipping Methods -->
+    <route url="/V1/callcenter/shipping-methods" method="GET">
+        <service class="CallCenter\Integration\Api\ShippingMethodInterface" method="getList"/>
+        <resources>
+            <resource ref="CallCenter_Integration::callcenter"/>
+        </resources>
+    </route>
+
+    <!-- Payment Methods -->
+    <route url="/V1/callcenter/payment-methods" method="GET">
+        <service class="CallCenter\Integration\Api\PaymentMethodInterface" method="getList"/>
+        <resources>
+            <resource ref="CallCenter_Integration::callcenter"/>
+        </resources>
+    </route>
+
+    <!-- Place Order -->
+    <route url="/V1/callcenter/order" method="POST">
+        <service class="CallCenter\Integration\Api\OrderInterface" method="place"/>
+        <resources>
+            <resource ref="CallCenter_Integration::callcenter"/>
+        </resources>
+    </route>
+</routes> 

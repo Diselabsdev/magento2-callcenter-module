@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="CallCenter_Integration::callcenter" 
+             title="Call Center" 
+             module="CallCenter_Integration" 
+             sortOrder="100" 
+             resource="CallCenter_Integration::callcenter" />
+        
+        <add id="CallCenter_Integration::agents" 
+             title="Agent Management" 
+             module="CallCenter_Integration" 
+             sortOrder="10" 
+             parent="CallCenter_Integration::callcenter" 
+             resource="CallCenter_Integration::agents" />
+        
+        <add id="CallCenter_Integration::agents_list" 
+             title="Agents" 
+             module="CallCenter_Integration" 
+             sortOrder="10" 
+             parent="CallCenter_Integration::agents" 
+             action="callcenter/agents/index" 
+             resource="CallCenter_Integration::agents_view" />
+        
+        <add id="CallCenter_Integration::agents_create" 
+             title="New Agent" 
+             module="CallCenter_Integration" 
+             sortOrder="20" 
+             parent="CallCenter_Integration::agents" 
+             action="callcenter/agents/new" 
+             resource="CallCenter_Integration::agents_create" />
+        
+        <add id="CallCenter_Integration::orders" 
+             title="Orders" 
+             module="CallCenter_Integration" 
+             sortOrder="20" 
+             parent="CallCenter_Integration::callcenter" 
+             action="callcenter/orders/index" 
+             resource="CallCenter_Integration::orders" />
+    </menu>
+</config> 
